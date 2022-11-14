@@ -8,6 +8,8 @@
 				// 导航栏背景演示
 				"navigationBarBackgroundColor": "#345DC2",
 				"app-plus": {
+					 // 取消APP端iOS回弹,避免与下拉刷新冲突
+					"bounce" : "none",
 					// titleNView 导航栏
 					"titleNView": {
 						// 导航栏背景透明渐变效果 / 不占位
@@ -48,8 +50,22 @@
             "path" : "pages/category/category",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "分类",
+                "navigationBarBackgroundColor": "#345DC2",
+				"navigationBarTextStyle":"white",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"float": "right",
+								"fontSize": "18",
+								"background": "rgba(0,0,0,0)",
+								"fontSrc": "/static/icon/iconfont.ttf",
+								"text": "\ue608"
+							}
+						]
+					}
+				}
             }
         }
         ,{
@@ -88,6 +104,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+               "app-plus": {
+               	"titleNView": {
+					//隐藏左侧后退按钮（APP）
+					"autoBackButton": false, 
+               		"searchInput": {
+               			"align": "left",
+						"placeholder": "搜索你想要的内容",
+						"borderRadius":"30rpx",
+						"backgroundColor":"#f0f1f2"
+               		},
+					"buttons": [
+						{
+							"float": "right",
+							"text": "取消",
+							"fontSize":"16",
+							"color":"#2A333B"
+						}
+					]
+               	}
+               }
+            }
+            
+        }
     ],
 	"globalStyle": {
 		// 状态栏与导航栏背景色
@@ -95,7 +138,9 @@
 		// 状态栏与导航栏字体颜色，仅支持 black/white(默认)
 		"navigationBarBackgroundColor": "#FFFFFF",
 		// 上拉下拉回弹背景色（ios和真机微小程序）
-		"backgroundColor": "#F8F9FB"
+		"backgroundColor": "#F8F9FB",
+		// iOS APP真机bounce回弹区域默认灰色,建议统一重置为白色
+		"backgroundColorTop":"#FFFFFF"
 	},
 	"uniIdRouter": {},
 	"tabBar": {
