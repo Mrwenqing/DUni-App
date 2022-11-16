@@ -1,0 +1,1 @@
+<view><i-down-bar vue-id="0a1aee71-1" params="{{params}}" data-event-opts="{{[['^search',[['search']]]]}}" bind:search="__e" bind:__l="__l"></i-down-bar></view>

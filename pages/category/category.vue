@@ -9,7 +9,7 @@
 		</scroll-view>
 		<scroll-view class="right noScorll" scroll-y="true" >
 			<view class="tag">
-				<view @click="handleToSearch(item)" v-for="(item,index) in labelList" :key="index">
+				<view @click.stop="handleToSearch(item)" v-for="(item,index) in labelList" :key="index">
 					{{item.name}}
 				</view>
 			</view>
@@ -62,11 +62,7 @@ categoryId: item.id})
 				this.handleSelectCategory(this.activeIndex)
 			},
 			searchPageChangeLabel(item){
-
-				console.log("item=>", item)
-				console.log("value=>", this.value)
 				if(this.value.name !== item.name && this.value.name !== item.cname){
-					console.log(456)
 					// 赋值给搜索面显示名称，如果有分类名就取分类名，没有就取标签名
 					this.value.name = item.cname || item.name
 					// 标签id
@@ -94,6 +90,7 @@ categoryId: item.id})
 				if(this.value){
 
 					this.searchPageChangeLabel(item)
+					this.value.active = false
 					return
 					
 				}
