@@ -72,8 +72,21 @@
             "path" : "pages/article/article",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "阅读",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#345DC2",
+				"app-plus": {
+					"titleNView": {
+						"searchInput": {
+							"align": "center",
+							"placeholder": "搜索你想要的内容",
+							"disabled": true,
+							"backgroundColor": "#F0F1F2",
+							"borderRadius": "30rpx",
+							"placeholderColor": "#979C9D"
+						}
+					}
+				}
             }
             
         }
@@ -90,8 +103,14 @@
             "path" : "pages/my/my",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#345DC2",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
             }
             
         }
@@ -155,7 +174,145 @@
 		    }
 		    
 		}
-	],
+	    ,{
+            "path" : "pages/course/course-play",
+            "style" :                                                                                    
+            {
+                "app-plus": {
+					"titleNView": false,
+                	"subNVues": [
+                		{
+                			"id" : "top",
+							"path": "pages/course/subNVue/video",
+							"style": {
+								"width": "50px",
+								"height" : "50px",
+								"background" : "#ccc"
+							}
+                		}
+                	]
+                }
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/confirm-buy",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "确认购买",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/auth/login",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom",
+				"enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/xieyi",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户服务协议 ",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/yinsi",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "隐私权政策 ",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/user",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/order",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的订单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/my-balance",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的余额",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/study",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/setting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设置",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/feedback",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "意见反馈",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于我们",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/auth/bind-mobile",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/article/details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		// 状态栏与导航栏背景色
 		"navigationBarTextStyle": "black",

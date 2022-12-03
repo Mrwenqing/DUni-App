@@ -4,13 +4,20 @@
 			<view class="chapters text-ellipsis">
 				<text>第{{index + 1}}章 {{item.name}}</text>
 			</view>
-			<view @click="handleCousePlay(sections)" class="sections row" v-for="(sections,i) in item.sectionList" :key="i">
+			
+			<view 
+			@click="handleCousePlay(index,i,sections)" 
+			class="sections row"
+			:class="{active : index === activeObject.chapterIndex && i === activeObject.sectionsIndex}"
+			v-for="(sections,i) in item.sectionList" 
+			:key="i">
 				<text class="iconfont icon-roundrightfill"></text>
 				<view class="row">
 					<text>{{index +1}}-{{i+1}}</text>
 					<text class="title text-ellipsis">{{sections.name}}</text>
 				</view>
-				<text v-if="sections.isFree === 0" class="see">试看</text>
+				<!-- 如果是未购买并且是收费的情况下显示试看 -->
+				<text v-if="!isBuy && sections.isFree === 0" class="see">试看</text>
 			</view>
 		</block>
 		
@@ -20,10 +27,20 @@
 <script>
 	export default {
 		props: {
+			// 课程是否购买
 			isBuy : {
 				type : Boolean,
 				default : false
 			},
+			// 控制章节选中高亮效果
+			activeObject : {
+				type : Object,
+				default : () => ({
+					chapterIndex : -1,
+					sectionsIndex : -1
+				})
+			},
+			// 章节列表数据
 			chapterList: {
 				type: Array,
 				default: () => ([{
@@ -65,10 +82,11 @@
 			}
 		},
 		methods : {
-			handleCousePlay(data){
+			handleCousePlay(chapterIndex, sectionIndex,data){
 				// 当 课程需要购买 或者 当前课程没有购买的时候
 				if(data.isFree === 0 || this.isBuy){
-					this.$emit("playVideo")
+					const activeObject = {chapterIndex,sectionIndex}
+					this.$emit("playVideo", {data,activeObject})
 				}else{
 					this.$util.msg('请先购买')
 				}
@@ -101,6 +119,8 @@
 			border-bottom: $i-underline;
 			line-height: 40rpx;
 			color: #3d3c40;
+			
+			
 
 			text {
 				margin-right: 10rpx;
@@ -118,5 +138,9 @@
 				text-align: right;
 			}
 		}
+	}
+	
+	.active{
+		color : $i-text-color-blue !important;
 	}
 </style>
